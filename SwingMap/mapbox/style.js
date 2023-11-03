@@ -12,9 +12,9 @@ var styleJSON = {
             "tiles": ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
             "tileSize": 256
         },
-        "Union_1": {
+        "Intersection2014and2019_1": {
             "type": "geojson",
-            "data": json_Union_1
+            "data": json_Intersection2014and2019_1
         }
                     },
     "sprite": "",
@@ -34,11 +34,11 @@ var styleJSON = {
             "source": "OpenStreetMap_0"
         },
         {
-            "id": "lyr_Union_1_0",
+            "id": "lyr_Intersection2014and2019_1_0",
             "type": "fill",
-            "source": "Union_1",
+            "source": "Intersection2014and2019_1",
             "layout": {},
-            "paint": {'fill-opacity': ['case', ['all', ['>', ['get', 'Arvind Ganpat Sawant'], ['get', 'Deora Milind Murli']], ['>', ['get', 'ARVND SAWANT'], ['get', 'DEORA MILIND MURLI_2']]], 1.0, ['all', ['<', ['get', 'Arvind Ganpat Sawant'], ['get', 'Deora Milind Murli']], ['<', ['get', 'ARVND SAWANT'], ['get', 'DEORA MILIND MURLI_2']]], 1.0, ['any', ['all', ['<', ['get', 'Arvind Ganpat Sawant'], ['get', 'Deora Milind Murli']], ['>', ['get', 'ARVND SAWANT'], ['get', 'DEORA MILIND MURLI_2']]], ['all', ['>', ['get', 'Arvind Ganpat Sawant'], ['get', 'Deora Milind Murli']], ['<', ['get', 'ARVND SAWANT'], ['get', 'DEORA MILIND MURLI_2']]]], 1.0, 0], 'fill-color': ['case', ['all', ['>', ['get', 'Arvind Ganpat Sawant'], ['get', 'Deora Milind Murli']], ['>', ['get', 'ARVND SAWANT'], ['get', 'DEORA MILIND MURLI_2']]], '#ff001e', ['all', ['<', ['get', 'Arvind Ganpat Sawant'], ['get', 'Deora Milind Murli']], ['<', ['get', 'ARVND SAWANT'], ['get', 'DEORA MILIND MURLI_2']]], '#48e765', ['any', ['all', ['<', ['get', 'Arvind Ganpat Sawant'], ['get', 'Deora Milind Murli']], ['>', ['get', 'ARVND SAWANT'], ['get', 'DEORA MILIND MURLI_2']]], ['all', ['>', ['get', 'Arvind Ganpat Sawant'], ['get', 'Deora Milind Murli']], ['<', ['get', 'ARVND SAWANT'], ['get', 'DEORA MILIND MURLI_2']]]], '#1336f7', '#ffffff']}
+            "paint": {'fill-opacity': ['case', ['==', ['get', 'Color'], 0], 1.0, ['==', ['get', 'Color'], 1], 1.0, ['==', ['get', 'Color'], 2], 1.0, 0], 'fill-color': ['case', ['==', ['get', 'Color'], 0], '#1f78b4', ['==', ['get', 'Color'], 1], '#ff7f00', ['==', ['get', 'Color'], 2], '#e31a1c', '#ffffff']}
         }
 ],
 }

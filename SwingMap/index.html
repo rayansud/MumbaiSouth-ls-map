@@ -25,15 +25,15 @@
         </div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="./mapbox/mapbox-gl.js"></script>
-        <script src="data/Union_1.js"></script>
+        <script src="data/Intersection2014and2019_1.js"></script>
 <script src="./mapbox/style.js"></script>
 <script src="./js/Autolinker.min.js"></script>
 <script>
 var map = new mapboxgl.Map({
  container: 'map',
  style: styleJSON,
- center: [72.83430650154291,18.958870517241877],
- zoom: 13,
+ center: [72.83023049391038,18.9697367542249],
+ zoom: 12,
  bearing: 360.0,
  attributionControl: false
 });
@@ -44,82 +44,57 @@ map.addControl(new mapboxgl.AttributionControl({
 }));
 var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
 
-map.on('click', 'lyr_Union_1_0', function (e) {
+map.on('click', 'lyr_Intersection2014and2019_1_0', function (e) {
     var description = '<table>\
                     <tr>\
                         <td colspan="2">' + (e.features[0].properties['fid'] !== null ? autolinker.link(e.features[0].properties['fid'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (e.features[0].properties['Lat'] !== null ? autolinker.link(e.features[0].properties['Lat'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">SS - 2014</th>\
+                        <td>' + (e.features[0].properties['SS - 2014'] !== null ? autolinker.link(e.features[0].properties['SS - 2014'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (e.features[0].properties['Lng'] !== null ? autolinker.link(e.features[0].properties['Lng'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">INC - 2014</th>\
+                        <td>' + (e.features[0].properties['INC - 2014'] !== null ? autolinker.link(e.features[0].properties['INC - 2014'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (e.features[0].properties['Arvind Ganpat Sawant'] !== null ? autolinker.link(e.features[0].properties['Arvind Ganpat Sawant'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Total - 2014</th>\
+                        <td>' + (e.features[0].properties['Total - 2014'] !== null ? autolinker.link(e.features[0].properties['Total - 2014'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (e.features[0].properties['Deora Milind Murli'] !== null ? autolinker.link(e.features[0].properties['Deora Milind Murli'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">AC</th>\
+                        <td>' + (e.features[0].properties['AC'] !== null ? autolinker.link(e.features[0].properties['AC'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (e.features[0].properties['NOTA'] !== null ? autolinker.link(e.features[0].properties['NOTA'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">SS - 2019</th>\
+                        <td>' + (e.features[0].properties['SS - 2019'] !== null ? autolinker.link(e.features[0].properties['SS - 2019'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (e.features[0].properties['AC'] !== null ? autolinker.link(e.features[0].properties['AC'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">INC - 2019</th>\
+                        <td>' + (e.features[0].properties['INC - 2019'] !== null ? autolinker.link(e.features[0].properties['INC - 2019'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (e.features[0].properties['Booth No'] !== null ? autolinker.link(e.features[0].properties['Booth No'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Total - 2019</th>\
+                        <td>' + (e.features[0].properties['Total - 2019'] !== null ? autolinker.link(e.features[0].properties['Total - 2019'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (e.features[0].properties['LossMargin'] !== null ? autolinker.link(e.features[0].properties['LossMargin'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">WonIn2014</th>\
+                        <td>' + (e.features[0].properties['WonIn2014'] !== null ? autolinker.link(e.features[0].properties['WonIn2014'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (e.features[0].properties['Lat_1'] !== null ? autolinker.link(e.features[0].properties['Lat_1'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">MarginIn2014</th>\
+                        <td>' + (e.features[0].properties['MarginIn2014'] !== null ? autolinker.link(e.features[0].properties['MarginIn2014'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (e.features[0].properties['Lng_1'] !== null ? autolinker.link(e.features[0].properties['Lng_1'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">MarginIn2019</th>\
+                        <td>' + (e.features[0].properties['MarginIn2019'] !== null ? autolinker.link(e.features[0].properties['MarginIn2019'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (e.features[0].properties['Address'] !== null ? autolinker.link(e.features[0].properties['Address'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">WonIn2019</th>\
+                        <td>' + (e.features[0].properties['WonIn2019'] !== null ? autolinker.link(e.features[0].properties['WonIn2019'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (e.features[0].properties['Total of valid votes'] !== null ? autolinker.link(e.features[0].properties['Total of valid votes'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (e.features[0].properties['fid_2'] !== null ? autolinker.link(e.features[0].properties['fid_2'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (e.features[0].properties['latitude'] !== null ? autolinker.link(e.features[0].properties['latitude'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (e.features[0].properties['longitude'] !== null ? autolinker.link(e.features[0].properties['longitude'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (e.features[0].properties['ARVND SAWANT'] !== null ? autolinker.link(e.features[0].properties['ARVND SAWANT'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (e.features[0].properties['DEORA MILIND MURLI_2'] !== null ? autolinker.link(e.features[0].properties['DEORA MILIND MURLI_2'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (e.features[0].properties['AC_2'] !== null ? autolinker.link(e.features[0].properties['AC_2'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (e.features[0].properties['Booth'] !== null ? autolinker.link(e.features[0].properties['Booth'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (e.features[0].properties['LossMargin_2'] !== null ? autolinker.link(e.features[0].properties['LossMargin_2'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (e.features[0].properties['latitude_1'] !== null ? autolinker.link(e.features[0].properties['latitude_1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (e.features[0].properties['longitude_1'] !== null ? autolinker.link(e.features[0].properties['longitude_1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (e.features[0].properties['booth_name_14'] !== null ? autolinker.link(e.features[0].properties['booth_name_14'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (e.features[0].properties['Total'] !== null ? autolinker.link(e.features[0].properties['Total'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (e.features[0].properties['Color'] !== null ? autolinker.link(e.features[0].properties['Color'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>'
 
@@ -130,12 +105,12 @@ map.on('click', 'lyr_Union_1_0', function (e) {
 });
 
 // Change the cursor to a pointer when the mouse is over the places layer.
-map.on('mouseenter', 'lyr_Union_1_0', function () {
+map.on('mouseenter', 'lyr_Intersection2014and2019_1_0', function () {
     map.getCanvas().style.cursor = 'pointer';
 });
 
 // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'lyr_Union_1_0', function () {
+map.on('mouseleave', 'lyr_Intersection2014and2019_1_0', function () {
     map.getCanvas().style.cursor = '';
 });
 </script>
