@@ -25,15 +25,15 @@
         </div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="./mapbox/mapbox-gl.js"></script>
-        <script src="data/Consolidated2019LSwithboothlocsnotcleaned_1.js"></script>
-        <script src="data/Clipped_2.js"></script>
+        <script src="data/Merged_1.js"></script>
+        <script src="data/ClippedVoronoiclipped_2.js"></script>
 <script src="./mapbox/style.js"></script>
 <script src="./js/Autolinker.min.js"></script>
 <script>
 var map = new mapboxgl.Map({
  container: 'map',
  style: styleJSON,
- center: [72.82721154294974,18.956890029334023],
+ center: [72.78897222261742,18.934919076528256],
  zoom: 12,
  bearing: 360.0,
  attributionControl: false
@@ -45,7 +45,7 @@ map.addControl(new mapboxgl.AttributionControl({
 }));
 var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
 
-map.on('click', 'lyr_Consolidated2019LSwithboothlocsnotcleaned_1_0', function (e) {
+map.on('click', 'lyr_Merged_1_0', function (e) {
     var description = '<table>\
                     <tr>\
                         <td colspan="2">' + (e.features[0].properties['Lat'] !== null ? autolinker.link(e.features[0].properties['Lat'].toLocaleString()) : '') + '</td>\
@@ -92,18 +92,26 @@ map.on('click', 'lyr_Consolidated2019LSwithboothlocsnotcleaned_1_0', function (e
 });
 
 // Change the cursor to a pointer when the mouse is over the places layer.
-map.on('mouseenter', 'lyr_Consolidated2019LSwithboothlocsnotcleaned_1_0', function () {
+map.on('mouseenter', 'lyr_Merged_1_0', function () {
     map.getCanvas().style.cursor = 'pointer';
 });
 
 // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'lyr_Consolidated2019LSwithboothlocsnotcleaned_1_0', function () {
+map.on('mouseleave', 'lyr_Merged_1_0', function () {
     map.getCanvas().style.cursor = '';
 });
-map.on('click', 'lyr_Clipped_2_0', function (e) {
+map.on('click', 'lyr_ClippedVoronoiclipped_2_0', function (e) {
     var description = '<table>\
                     <tr>\
                         <td colspan="2">' + (e.features[0].properties['fid'] !== null ? autolinker.link(e.features[0].properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lat</th>\
+                        <td>' + (e.features[0].properties['Lat'] !== null ? autolinker.link(e.features[0].properties['Lat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lng</th>\
+                        <td>' + (e.features[0].properties['Lng'] !== null ? autolinker.link(e.features[0].properties['Lng'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Arvind Ganpat Sawant</th>\
@@ -130,6 +138,12 @@ map.on('click', 'lyr_Clipped_2_0', function (e) {
                         <td>' + (e.features[0].properties['LossMargin'] !== null ? autolinker.link(e.features[0].properties['LossMargin'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <td colspan="2">' + (e.features[0].properties['Lat_1'] !== null ? autolinker.link(e.features[0].properties['Lat_1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (e.features[0].properties['Lng_1'] !== null ? autolinker.link(e.features[0].properties['Lng_1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">Address</th>\
                         <td>' + (e.features[0].properties['Address'] !== null ? autolinker.link(e.features[0].properties['Address'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -146,45 +160,15 @@ map.on('click', 'lyr_Clipped_2_0', function (e) {
 });
 
 // Change the cursor to a pointer when the mouse is over the places layer.
-map.on('mouseenter', 'lyr_Clipped_2_0', function () {
+map.on('mouseenter', 'lyr_ClippedVoronoiclipped_2_0', function () {
     map.getCanvas().style.cursor = 'pointer';
 });
 
 // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'lyr_Clipped_2_0', function () {
+map.on('mouseleave', 'lyr_ClippedVoronoiclipped_2_0', function () {
     map.getCanvas().style.cursor = '';
 });
-    var toggleableLayerIds = ['lyr_Clipped_2_0', 'Clipped','lyr_Consolidated2019LSwithboothlocsnotcleaned_1_0', 'Consolidated 2019 LS with booth locs (not cleaned)','lyr_OpenStreetMap_0_0', 'OpenStreetMap'];
-
-    for (var i = 0; i < toggleableLayerIds.length; i=i+2) {
-        var id = toggleableLayerIds[i];
-        var layerName = toggleableLayerIds[i+1]
-
-        var link = document.createElement('a');
-        link.href = '#';
-        link.className = 'active';
-        link.layer = id;
-        link.textContent = layerName;
-
-        link.onclick = function (e) {
-            var clickedLayer = this.layer;
-            e.preventDefault();
-            e.stopPropagation();
-
-            var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-
-            if (typeof visibility === 'undefined' || visibility == 'visible') {
-                map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-                this.className = '';
-            } else {
-                this.className = 'active';
-                map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-            }
-        };
-
-        var layers = document.getElementById('menu');
-        layers.appendChild(link);
-    }</script>
+</script>
         <script>
         map.addControl(
             new mapboxgl.GeolocateControl({

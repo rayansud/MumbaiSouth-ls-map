@@ -25,16 +25,16 @@
         </div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="./mapbox/mapbox-gl.js"></script>
-        <script src="data/Consolidated2014LSwithboothlocs_1.js"></script>
-        <script src="data/Clipped_2.js"></script>
+        <script src="data/Merged_1.js"></script>
+        <script src="data/ClippedVoronoi_2.js"></script>
 <script src="./mapbox/style.js"></script>
 <script src="./js/Autolinker.min.js"></script>
 <script>
 var map = new mapboxgl.Map({
  container: 'map',
  style: styleJSON,
- center: [72.84592596059245,18.958295773003712],
- zoom: 13,
+ center: [72.81634807251014,18.964214934417264],
+ zoom: 12,
  bearing: 360.0,
  attributionControl: false
 });
@@ -45,7 +45,7 @@ map.addControl(new mapboxgl.AttributionControl({
 }));
 var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
 
-map.on('click', 'lyr_Consolidated2014LSwithboothlocs_1_0', function (e) {
+map.on('click', 'lyr_Merged_1_0', function (e) {
     var description = '<table>\
                     <tr>\
                         <td colspan="2">' + (e.features[0].properties['latitude'] !== null ? autolinker.link(e.features[0].properties['latitude'].toLocaleString()) : '') + '</td>\
@@ -89,24 +89,26 @@ map.on('click', 'lyr_Consolidated2014LSwithboothlocs_1_0', function (e) {
 });
 
 // Change the cursor to a pointer when the mouse is over the places layer.
-map.on('mouseenter', 'lyr_Consolidated2014LSwithboothlocs_1_0', function () {
+map.on('mouseenter', 'lyr_Merged_1_0', function () {
     map.getCanvas().style.cursor = 'pointer';
 });
 
 // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'lyr_Consolidated2014LSwithboothlocs_1_0', function () {
+map.on('mouseleave', 'lyr_Merged_1_0', function () {
     map.getCanvas().style.cursor = '';
 });
-map.on('click', 'lyr_Clipped_2_0', function (e) {
+map.on('click', 'lyr_ClippedVoronoi_2_0', function (e) {
     var description = '<table>\
                     <tr>\
                         <td colspan="2">' + (e.features[0].properties['fid'] !== null ? autolinker.link(e.features[0].properties['fid'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (e.features[0].properties['latitude'] !== null ? autolinker.link(e.features[0].properties['latitude'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">latitude</th>\
+                        <td>' + (e.features[0].properties['latitude'] !== null ? autolinker.link(e.features[0].properties['latitude'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (e.features[0].properties['longitude'] !== null ? autolinker.link(e.features[0].properties['longitude'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">longitude</th>\
+                        <td>' + (e.features[0].properties['longitude'] !== null ? autolinker.link(e.features[0].properties['longitude'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">ARVND SAWANT</th>\
@@ -117,7 +119,8 @@ map.on('click', 'lyr_Clipped_2_0', function (e) {
                         <td>' + (e.features[0].properties['DEORA MILIND MURLI'] !== null ? autolinker.link(e.features[0].properties['DEORA MILIND MURLI'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>AC</strong><br />' + (e.features[0].properties['AC'] !== null ? autolinker.link(e.features[0].properties['AC'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">AC</th>\
+                        <td>' + (e.features[0].properties['AC'] !== null ? autolinker.link(e.features[0].properties['AC'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Booth</th>\
@@ -134,8 +137,7 @@ map.on('click', 'lyr_Clipped_2_0', function (e) {
                         <td colspan="2">' + (e.features[0].properties['longitude_1'] !== null ? autolinker.link(e.features[0].properties['longitude_1'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">booth_name_14</th>\
-                        <td>' + (e.features[0].properties['booth_name_14'] !== null ? autolinker.link(e.features[0].properties['booth_name_14'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (e.features[0].properties['booth_name_14'] !== null ? autolinker.link(e.features[0].properties['booth_name_14'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Total</th>\
@@ -150,12 +152,12 @@ map.on('click', 'lyr_Clipped_2_0', function (e) {
 });
 
 // Change the cursor to a pointer when the mouse is over the places layer.
-map.on('mouseenter', 'lyr_Clipped_2_0', function () {
+map.on('mouseenter', 'lyr_ClippedVoronoi_2_0', function () {
     map.getCanvas().style.cursor = 'pointer';
 });
 
 // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'lyr_Clipped_2_0', function () {
+map.on('mouseleave', 'lyr_ClippedVoronoi_2_0', function () {
     map.getCanvas().style.cursor = '';
 });
 </script>
